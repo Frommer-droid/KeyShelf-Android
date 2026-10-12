@@ -1,0 +1,17 @@
+<resources>
+    <style name="AppTheme" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#61AFEF</item>
+        <item name="android:windowBackground">#282C34</item>
+        <item name="android:statusBarColor">#21252B</item>
+        <item name="android:navigationBarColor">#21252B</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+    <style name="QuickTheme" parent="android:style/Theme.Material.Dialog.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:colorAccent">#61AFEF</item>
+        <item name="android:windowBackground">#282C34</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <string name="accessibility_description">Показывает кнопку KeyShelf возле активного поля. Вставляет только выбранное вами значение. Не сохраняет содержимое чужих полей.</string>
+</resources>

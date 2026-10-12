@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+*.jks
+*.keystore
+*.kdbx
+*.kdbx.*
+*.log
+outputs/
+.local-state/
+**/.kotlin/
+
+.codex-remote-attachments/

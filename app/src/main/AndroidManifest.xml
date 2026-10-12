@@ -1,0 +1,33 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- Personal ADB installation: recover an already enabled service after MIUI kills it. -->
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <application android:name=".KeyShelfApp" android:label="KeyShelf"
+        android:theme="@style/AppTheme" android:icon="@drawable/ic_keyshelf"
+        android:allowBackup="false" android:usesCleartextTraffic="false">
+        <receiver android:name=".BootReceiver" android:exported="false">
+            <intent-filter><action android:name="android.intent.action.BOOT_COMPLETED" /></intent-filter>
+        </receiver>
+        <activity android:name=".MainActivity" android:exported="true" android:windowSoftInputMode="adjustResize">
+            <intent-filter><action android:name="android.intent.action.MAIN" /><category android:name="android.intent.category.LAUNCHER" /></intent-filter>
+        </activity>
+        <activity android:name=".QrActivity" android:exported="false" />
+        <activity android:name=".MiniEditActivity" android:exported="false" android:excludeFromRecents="true"
+            android:taskAffinity="" android:theme="@style/QuickTheme" android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".QuickFillActivity" android:exported="false" android:excludeFromRecents="true"
+            android:theme="@style/QuickTheme" android:windowSoftInputMode="adjustResize" />
+        <service android:name=".FillService" android:permission="android.permission.BIND_AUTOFILL_SERVICE" android:exported="true">
+            <intent-filter><action android:name="android.service.autofill.AutofillService" /></intent-filter>
+            <meta-data android:name="android.autofill" android:resource="@xml/autofill" />
+        </service>
+        <service android:name=".FloatingService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:exported="true">
+            <intent-filter><action android:name="android.accessibilityservice.AccessibilityService" /></intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility" />
+        </service>
+    </application>
+</manifest>
